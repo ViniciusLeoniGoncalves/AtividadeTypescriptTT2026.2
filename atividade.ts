@@ -46,21 +46,21 @@ function listarTarefasPorPrioridade(prioridade: Prioridade): Tarefa[] {
     TESTE SUAS FUNÇÔES AQUI!
 ---------------------------------*/
 
-console.log(adicionarTarefa("Ver as aulas do TT", "alta", "Estudo"));
-console.log(adicionarTarefa("Fazer compras", "baixa"));
-console.log(adicionarTarefa("Praticar exercícios", "alta", "Saúde"));
-console.log("Tarefas de alta prioridade:", listarTarefasPorPrioridade("alta"));
-console.log("Tarefas de baixa prioridade:", listarTarefasPorPrioridade("baixa"));
+//console.log(adicionarTarefa("Ver as aulas do TT", "alta", "Estudo"));
+//console.log(adicionarTarefa("Fazer compras", "baixa"));
+//console.log(adicionarTarefa("Praticar exercícios", "alta", "Saúde"));
+//console.log("Tarefas de alta prioridade:", listarTarefasPorPrioridade("alta"));
+//console.log("Tarefas de baixa prioridade:", listarTarefasPorPrioridade("baixa"));
 
 
 //adicionei mais testes
-console.log("Tarefas de 2 prioridade:", listarTarefasPorPrioridade(2));
-console.log("Tarefas de batata prioridade:", listarTarefasPorPrioridade("batata"));
-console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("media"));
-console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("média"));
+//console.log("Tarefas de 2 prioridade:", listarTarefasPorPrioridade(2));
+//console.log("Tarefas de batata prioridade:", listarTarefasPorPrioridade("batata"));
+//console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("media"));
+//console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("média"));
 
-console.log(listaDeTarefas);
-console.log(adicionarTarefa());
-console.log(adicionarTarefa(undefined, undefined, undefined));
-console.log(adicionarTarefa("undefined", "undefined", "undefined"));
-console.log(listaDeTarefas);
+//console.log(listaDeTarefas);
+//console.log(adicionarTarefa());
+//console.log(adicionarTarefa(undefined, undefined, undefined));
+//console.log(adicionarTarefa("undefined", "undefined", "undefined"));
+//console.log(listaDeTarefas);
