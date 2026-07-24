@@ -1,35 +1,43 @@
-// Aqui criamos um novo tipo para prioridade, complete esse campo com os tipos de prioridade desejados
-type Prioridade = "";
+type Prioridade = "baixa" | "media" | "alta";
 
 interface Tarefa {
-  // Nessa interface adicione as propriedades que serão usadas para uma tarefa
+    titulo: string;
+    prioridade: Prioridade;
+    categoria?: string;
 }
 
-// Para que esse array receba Tarefas, o que devemos fazer?
-const listaDeTarefas: any[] = [];
+const listaDeTarefas: Tarefa[] = [];
 
-/**
- * Cria um novo objeto Tarefa, adiciona ao array listaDeTarefas e retorna uma mensagem.
- * @param titulo - Texto descritivo da tarefa
- * @param prioridade - Nível de prioridade ("baixa" | "media" | "alta")
- * @param categoria - Categoria OPCIONAL da tarefa
- * @returns Mensagem de sucesso (string)
- */
-//Complete com os argumentos devidamente tipados e implemente essa função
-//"any" seria o tipagem ideal para o retorno dessa função?
-function adicionarTarefa() : any  {
-
+function adicionarTarefa(Titulo: string, Prioridade: Prioridade, Categoria?: string) : string  {
+    let t: Tarefa = { //criando por objeto generico, pois descobri que a linguagem permite fazer isso sem classes
+        titulo: Titulo,
+        prioridade: Prioridade,
+        categoria: Categoria
+    };
+    if((t.titulo!=undefined && t.prioridade!=undefined) && ["baixa","media","alta"].includes(t.prioridade)){
+        listaDeTarefas.push(t);
+    }
+    if(listaDeTarefas.includes(t)){
+        return "tarefa '" + t.titulo + "' adicionada com sucesso e a lista agora tem " + listaDeTarefas.length + " tarefa(s)!!!";
+    }
+    else{
+        return "Erro grave!!! A tarefa não foi adicionada"
+    }
 }
 
-/**
- * Filtra as tarefas registradas com base na prioridade informada.
- * @param prioridade - Nível de prioridade a ser filtrado
- * @returns Lista contendo apenas as tarefas que correspondem à prioridade
- */
-//Complete com os argumentos devidamente tipados e implemente essa função
-//"any" seria o tipagem ideal para o retorno dessa função?
-function listarTarefasPorPrioridade(): any{
+function listarTarefasPorPrioridade(prioridade: Prioridade): Tarefa[] {
+    let tarefasPrioridade: Tarefa[]=[];
+    if(!["baixa","media","alta"].includes(prioridade)){
+      console.error("Tipo de prioridade fornecido é inválido");
+      return;
+    }
+    for(let i: number = 0;i<listaDeTarefas.length;i++){
+        if(listaDeTarefas[i].prioridade==prioridade){
+            tarefasPrioridade.push(listaDeTarefas[i]);
+        }
+    }
 
+    return tarefasPrioridade;
 }
 
 
@@ -38,8 +46,21 @@ function listarTarefasPorPrioridade(): any{
     TESTE SUAS FUNÇÔES AQUI!
 ---------------------------------*/
 
-//console.log(adicionarTarefa("Ver as aulas do TT", "alta", "Estudo"));
-//console.log(adicionarTarefa("Fazer compras", "baixa"));
-//console.log(adicionarTarefa("Praticar exercícios", "alta", "Saúde"));
+console.log(adicionarTarefa("Ver as aulas do TT", "alta", "Estudo"));
+console.log(adicionarTarefa("Fazer compras", "baixa"));
+console.log(adicionarTarefa("Praticar exercícios", "alta", "Saúde"));
+console.log("Tarefas de alta prioridade:", listarTarefasPorPrioridade("alta"));
+console.log("Tarefas de baixa prioridade:", listarTarefasPorPrioridade("baixa"));
 
-//console.log("Tarefas de alta prioridade:", listarTarefasPorPrioridade("alta"));
+
+//adicionei mais testes
+console.log("Tarefas de 2 prioridade:", listarTarefasPorPrioridade(2));
+console.log("Tarefas de batata prioridade:", listarTarefasPorPrioridade("batata"));
+console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("media"));
+console.log("Tarefas de media prioridade:", listarTarefasPorPrioridade("média"));
+
+console.log(listaDeTarefas);
+console.log(adicionarTarefa());
+console.log(adicionarTarefa(undefined, undefined, undefined));
+console.log(adicionarTarefa("undefined", "undefined", "undefined"));
+console.log(listaDeTarefas);
